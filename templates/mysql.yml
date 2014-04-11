@@ -7,23 +7,15 @@ test:
     host: <%= ENV['WERCKER_MYSQL_HOST'] %>
     port: <%= ENV['WERCKER_MYSQL_PORT'] %>
 
-
 staging:
-    adapter: mysql2
-    encoding: utf8
-    database: <%= ENV['WERCKER_MYSQL_DATABASE'] %><%= ENV['TEST_ENV_NUMBER'] %>
-    username: <%= ENV['WERCKER_MYSQL_USERNAME'] %>
-    password: <%= ENV['WERCKER_MYSQL_PASSWORD'] %>
-    host: <%= ENV['WERCKER_MYSQL_HOST'] %>
-    port: <%= ENV['WERCKER_MYSQL_PORT'] %>
-
+  adapter: sqlite3
+  database: db/staging.sqlite3
+  pool: 5
+  timeout: 5000
 
 production:
-    adapter: mysql2
-    encoding: utf8
-    database: <%= ENV['WERCKER_MYSQL_DATABASE'] %><%= ENV['TEST_ENV_NUMBER'] %>
-    username: <%= ENV['WERCKER_MYSQL_USERNAME'] %>
-    password: <%= ENV['WERCKER_MYSQL_PASSWORD'] %>
-    host: <%= ENV['WERCKER_MYSQL_HOST'] %>
-    port: <%= ENV['WERCKER_MYSQL_PORT'] %>
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
 
